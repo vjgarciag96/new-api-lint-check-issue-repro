@@ -1,6 +1,6 @@
 **DESCRIBE THE ISSUE IN DETAIL:**
 
-Lint's `NewAPI` check fails to detect invalid usages of `Matcher.group(String)` (https://developer.android.com/reference/java/util/regex/Matcher#group(java.lang.String)) when used via Kotlin stlib APIs (https://github.com/JetBrains/kotlin/blob/b76452e15f37f616a0393747b3c624eb61535fb7/libraries/stdlib/src/kotlin/text/regex/MatchResult.kt#L42).
+Lint's `NewAPI` check fails to detect "illegal" usages of `Matcher.group(String)` (https://developer.android.com/reference/java/util/regex/Matcher#group(java.lang.String)) when used via Kotlin stlib APIs (https://github.com/JetBrains/kotlin/blob/b76452e15f37f616a0393747b3c624eb61535fb7/libraries/stdlib/src/kotlin/text/regex/MatchResult.kt#L42) in API levels < 26.
 
 I don't know about the internals of the `NewApi` check, so I'm not sure this is something that's expected to be flagged as is, or whether Kotlin stdlib's should be doing something else for that to happen - opening the issue to get to the bottom of this.
 
